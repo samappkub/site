@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- meta Data -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- title -->
+        <title>Samuel Appiah-Kubi</title>
+
+        <!-- stylesheet -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
+        <link rel="stylesheet" href="css/light_template.css" />
+        <link rel="stylesheet" href="css/colors/blue-color.css" />
+
+        <!-- Plugins -->
+        <link rel="stylesheet" href="css/magnific-popup.css" />
+
+        <!-- google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script|Poppins:300i,400,600" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script>
+            // Ajax function
+
+            function _(id) {
+
+                return document.getElementById(id);
+
+            }
+
+            function submitForm() {
+
+                _("btn").disabled = true;
+                _("status").innerHTML = 'please wait ...';
+
+                var formdata = new FormData(),
+                    ajax = new XMLHttpRequest();
+
+                formdata.append("name", _("name").value);
+                formdata.append("email", _("email").value);
+                formdata.append("phone", _("phone").value);
+                formdata.append("subject", _("subject").value);
+                formdata.append("msg", _("msg").value);
+
+                ajax.open("POST", "contact.php");
+                ajax.onreadystatechange = function () {
+
+                    if (ajax.readyState === 4 && ajax.status === 200) {
+
+                        if (ajax.responseText === "success") {
+
+                            _("my_form").innerHTML = '<h2>Thanks ' + _("name").value + ',<br> <br> your message has been sent.</h2>';
+
+                        } else {
+
+                            _("status").innerHTML = ajax.responseText;
+                            _("btn").disabled = false;
+
+                        }
+                    }
+                };
+
+                ajax.send(formdata);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Start Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+
+            <div class="container">
+                <a href="#" class="logo">
+                    <span class="bg_logo"></span>
+                    <!-- You Can Edit the image on main.css file just search ( bg_logo ) -->
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="menu">
+                        <span class="line1"></span>
+                        <span class="line2"></span>
+                        <span class="line3"></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li id="home" class="nav-item active-nav">
+                            <a href="#home-cont" data-value="home-cont">
+                            <i class="icon-home" hidden></i>
+                                <span class="name-menu">Home</span>
+                            </a>
+                        </li>
+                        <li id="about" class="nav-item">
+                            <a href="#about-cont" data-value="about-cont">
+                            <i class="icon-male-user" hidden></i>
+                                <span class="name-menu">About</span>
+                            </a>
+                        </li>
+                        <li id="work" class="nav-item">
+                            <a href="#work-cont" data-value="work-cont">
+                            <i class="icon-picture" hidden></i>
+                                <span class="name-menu">Projects</span>
+                            </a>
+                        </li>
+                        <li id="serv" class="nav-item">
+                            <a href="https://blog.samuelappiahkubi.com" target="_blank">
+                            <i class="icon-layers" hidden></i>
+                                <span class="name-menu">Blog</span>
+                            </a>
+                        </li>
+                        <li id="contact" class="nav-item">
+                            <a href="#contact-cont" data-value="contact-cont">
+                            <i class="icon-envelope" hidden></i>
+                                <span class="name-menu">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/samuelkofi.appiahkubi" target="_blank"><i class="fab fa-facebook-f"></i></a> <!-- You Can Edit the link here -->
+                    <a href="https://twitter.com/samappkub" target="_blank"><i class="fab fa-twitter"></i></a> <!-- You Can Edit the link here -->
+                    <a href="https://github.com/samappkub" target="_blank"><i class="fab fa-github"></i></a> <!-- You Can Edit the link here -->
+                    <a href="https://www.instagram.com/kofi.sak/" target="_blank"><i class="fab fa-instagram"></i></a> <!-- You Can Edit the link here -->
+                </div>
+                <div class="collapse-menu">
+                    <span class="collapse-icon closed-menu"></span>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-toggle">
+            <div class="menu">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+        </div>
+        <!-- End Navbar -->
+
+        <!-- Start Header -->
+
+        <section id="home-cont" class="home3 home">
+            <div class="home-bg">
+                <div class="skewed"></div>
+                <div class="overlay"></div>
+                <div class="my-bg bg-image"></div>
+            </div>
+            <div class="image bg-image"></div>
+            <div class="title">
+                <h1 class="text-uppercase"><strong>Appiah-</strong>Kubi</h1>
+                <p class="type"></p>  <!-- You Can Edit the title on the custom.js File -->
+                <div class="btn-home">
+                    <a href="#work-cont">Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Header -->
+
+
+        <!-- Start About -->
+        <section id="about-cont" class="about">
+            <div class="title">
+                <h1 class="kaushan">About</h1>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-10 col-lg-6">
+                        <div class="about-img bg-image"></div>
+                        <!-- go to main.scss file to edit personal image -->
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="tabs-about">
+                            <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
+
+                                <!-- Start About Me Title Tab -->
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="about-tab" data-toggle="tab" href="#aboutme" role="tab" aria-controls="about" aria-expanded="true">
+                                        <i class="icon-male-user"></i>
+                                        <span>About me</span>
+                                    </a>
+                                </li>
+                                <!-- End About Me Title Tab -->
+
+                                <!-- ================ -->
+
+                                <!-- Start Profile Title Tab -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile">
+                                        <i class="icon-star"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                                <!-- End Profile Title Tab -->
+
+                                <!-- ================ -->
+
+                                <!-- Start Skills Title Tab -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="skill-tab" data-toggle="tab" href="#skill" role="tab" aria-controls="skill">
+                                        <i class="icon-magic-wand"></i>
+                                        <span>Skills</span>
+                                    </a>
+                                </li>
+                                <!-- End Skills Title Tab -->
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+
+                                <!-- Start About Me Tab -->
+                                <div class="tab-pane fade show active text-left" id="aboutme" role="tabpanel" aria-labelledby="about-tab">
+                                    <p>Very goofy when I am with close friends, I delight in bringing live to environment. Always wondered how that trait could be used in technology. The future is fascinating.</p>
+                                    <p>Probably why I switch from Mechanical Engineering to Computer Science and ECE(Electrical and Computer Engineering). These fields fascinate me and equips me with the necessary freedom.</p>
+                                    <p>Aside from reading tech books, drawing or writing codes for my side projects, I am probably talking about soccer players, AI or playing soccer.</p>
+                                    <img src="css/signature.png" class="img-fluid signature" alt="signature"/>
+                                    <!-- Here image Signature -->
+                                </div>
+                                <!-- End About Me Tab -->
+
+                                <!-- ================ -->
+
+                                <!-- Start Profile Tab -->
+                                <div class="tab-pane fade text-left profile" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <h6><span class="title-info">Name :</span><span>Samuel Appiah-Kubi</span></h6> <!-- Edit Your Name  -->
+                                    <h6><span class="title-info">Nationality : </span><span>Ghanaian</span></h6> <!-- Edit Your Nationality  -->
+                                    <h6><span class="title-info">High School : </span><span>Adisadel College</span></h6> <!-- Edit Your Email  -->
+                                    <h6><span class="title-info">Undergraduate : </span><span>Duke University</span></h6> <!-- Edit Your Date Of Birth  -->
+                                    <h6><span class="title-info">Major : </span><span>Computer Science</span></h6> <!-- Edit Your Phone -->
+
+                                    <div class="btn-about">
+                                        <a href="#">Download Resume</a>
+                                    </div>
+                                </div>
+                                <!-- End Profile Tab -->
+
+                                <!-- ================ -->
+
+                                <!-- Start Skills Tab -->
+                                <div class="tab-pane fade skill" id="skill" role="tabpanel" aria-labelledby="skill-tab">
+                                    <div class="skills">
+                                        <p class="progress-text">Python</p> <!-- Here You Can Edit The Name Of Skill -->
+                                        <div class="progress">
+                                            <div class="progress-bar" data-present="85%"></div> <!-- Here You Can Edit The Percentage -->
+                                        </div>
+                                        <p class="progress-text">Java</p> <!-- Here You Can Edit The Name Of Skill -->
+                                        <div class="progress">
+                                            <div class="progress-bar" data-present="70%"></div> <!-- Here You Can Edit The Percentage -->
+                                        </div>
+                                        <p class="progress-text">Javascript</p> <!-- Here You Can Edit The Name Of Skill -->
+                                        <div class="progress">
+                                            <div class="progress-bar" data-present="60%"></div> <!-- Here You Can Edit The Percentage -->
+                                        </div>
+                                        <p class="progress-text">Drawing and Painting</p> <!-- Here You Can Edit The Name Of Skill -->
+                                        <div class="progress">
+                                            <div class="progress-bar" data-present="80%"></div> <!-- Here You Can Edit The Percentage -->
+                                        </div>
+                                    </div>
+                                    <div class="btn-about">
+                                        <a href="#contact-cont">Hire me</a>
+                                    </div>
+                                </div>
+                                <!-- End Skills Tab -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End About -->
+
+        <!-- Start Work -->
+        <section id="work-cont" class="work">
+            <div class="title">
+                <h1 class="kaushan">Portfolio</h1>
+            </div>
+            <div class="container">
+                <div class="shuffle">
+                    <ul class="list-unstyled">
+                        <li data-class="all" class="active item">All</li>
+                        <li data-class=".web" class="item">Internship & Research</li>
+                        <li data-class=".graphic" class="item">Side Project</li>
+                        <li data-class=".marketing" class="item">Accolades</li>
+                    </ul>
+                </div>
+                <div class="gallery">
+                    <div class="row">
+                        <!-- Start Image Number 1 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item marketing">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Marketing</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 1 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 2 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item graphic">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Graphic Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 2 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 3 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item web">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Web Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 3 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 4 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item marketing">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Marketing</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 4 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 5 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item web">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Web Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 5 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 6 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item graphic">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Graphic Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 6 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 7 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item marketing less">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Marketing</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 7 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 8 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item graphic less">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Graphic Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 8 -->
+                        <!-- ===================== -->
+                        <!-- Start Image Number 9 -->
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="item web less">
+                                <div class="over">
+                                    <div class="info-img">
+                                        <h4>Title Projet</h4>
+                                        <span>Web Design</span>
+                                    </div>
+                                    <a class="image" href="http://via.placeholder.com/4000x3500">
+                                            <!-- ^ And Here -->
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </a>
+                                </div>
+                                <img src="http://via.placeholder.com/4000x3500" alt="imgPort1" class="img-fluid">
+                                        <!-- Here ^ You Can Change image And Up -->
+                            </div>
+                        </div>
+                        <!-- End Image Number 9 -->
+                        <!-- You can add more images here.. -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Work -->
+
+        <!-- Start Contact -->
+        <section id="contact-cont" class="contact">
+            <div class="title">
+                <h1 class="kaushan">Contact</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form">
+                        <form id="my_form" method="post" onsubmit="submitForm(); return false;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input id="name" class="form-control" type="text" name="name" placeholder="Your Name" required/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input id="email" class="form-control" type="email" name="email" placeholder="Your Email" required/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input id="phone" class="form-control" type="tel" name="phone" placeholder="Your Phone"/>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input id="subject" class="form-control" type="text" name="subject" placeholder="Subject"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <div class="form-group">
+                                    <textarea id="msg" class="form-control" placeholder="Write Your message here ..." required></textarea>
+                                </div>
+                                <p>
+                                    <span class="send-btn">
+                                        <input id="btn" class="btn" type="submit" value="Send Message" /><i class="fas fa-long-arrow-alt-right"></i>
+                                    </span>
+                                    <span id="status"></span>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="infos background-gradient">
+                        <h2 class="text-uppercase kaushan">Appiah-Kubi</h2>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:samappkub@gmail.com">samappkub@gmail.com</a>
+                        </div>
+                        <!--
+                        <div class="phone">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+1234567899">+123 456 7899</a>
+                        </div>-->
+                        <div class="address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Duke University</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- End Contact -->
+
+        <!-- Start Loading -->
+
+        <div class="loading">
+            <div class="blob-grid">
+                <div class="blob blob-0"></div>
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="blob blob-3"></div>
+                <div class="blob blob-4"></div>
+                <div class="blob blob-5"></div>
+            </div>
+        </div>
+
+        <!-- End Loading -->
+
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/typed.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+    </body>
+</html>
